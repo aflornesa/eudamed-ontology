@@ -10,6 +10,8 @@
                                   <http://purl.org/dc/terms/creator> "Abel Florensa Palau" ;
                                   <http://purl.org/dc/terms/date> "2026-04-12" ;
                                   <http://purl.org/dc/terms/description> "An ontology modelling the European catalogue of high-risk medical devices and in-vitro diagnostics under MDR (EU 2017/745) and IVDR (EU 2017/746) regulations." ;
+                                  <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
+                                  <http://purl.org/dc/terms/rights> "This ontology is licensed under CC BY 4.0. You are free to share and adapt it with attribution." ;
                                   <http://purl.org/dc/terms/title> "EUDAMED Medical Devices Ontology" ;
                                   owl:versionInfo "1.0.0" .
 
@@ -29,8 +31,20 @@
 <http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
 
 
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rights
+<http://purl.org/dc/terms/rights> rdf:type owl:AnnotationProperty .
+
+
 ###  http://purl.org/dc/terms/title
 <http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -45,8 +59,18 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
+###  http://www.example.org/eudamed#hasAssociatedIncident
+:hasAssociatedIncident rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :isReportedFor ;
+                       rdfs:domain :MedicalDevice ;
+                       rdfs:range :Incident ;
+                       rdfs:comment "Inverse of isReportedFor. Relates a device to incidents reported for it." ;
+                       rdfs:label "has associated incident" .
+
+
 ###  http://www.example.org/eudamed#hasIdentifiedRisk
 :hasIdentifiedRisk rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :isRiskOf ;
                    rdfs:domain :MedicalDevice ;
                    rdfs:range :Risk ;
                    rdfs:comment "Relates a medical device to a risk identified for that device type." ;
@@ -55,14 +79,24 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://www.example.org/eudamed#hasRiskClass
 :hasRiskClass rdf:type owl:ObjectProperty ;
+              owl:inverseOf :hasRiskClassifiedDevice ;
               rdfs:domain :MedicalDevice ;
               rdfs:range :RegulatoryClass ;
               rdfs:comment "Relates a medical device to its regulatory risk classification." ;
               rdfs:label "has risk class" .
 
 
+###  http://www.example.org/eudamed#hasRiskClassifiedDevice
+:hasRiskClassifiedDevice rdf:type owl:ObjectProperty ;
+                         rdfs:domain :RegulatoryClass ;
+                         rdfs:range :MedicalDevice ;
+                         rdfs:comment "Inverse of hasRiskClass. Relates a regulatory class to the devices assigned to it." ;
+                         rdfs:label "has risk-classified device" .
+
+
 ###  http://www.example.org/eudamed#involvesRisk
 :involvesRisk rdf:type owl:ObjectProperty ;
+              owl:inverseOf :isMaterialisedIn ;
               rdfs:domain :Incident ;
               rdfs:range :Risk ;
               rdfs:comment "Relates an incident to the risk that materialised." ;
@@ -71,10 +105,27 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://www.example.org/eudamed#isManufacturedBy
 :isManufacturedBy rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :isManufacturerOf ;
                   rdfs:domain :MedicalDevice ;
                   rdfs:range :Manufacturer ;
                   rdfs:comment "Relates a medical device to its manufacturer." ;
                   rdfs:label "is manufactured by" .
+
+
+###  http://www.example.org/eudamed#isManufacturerOf
+:isManufacturerOf rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Manufacturer ;
+                  rdfs:range :MedicalDevice ;
+                  rdfs:comment "Inverse of isManufacturedBy. Relates a manufacturer to the devices it produces." ;
+                  rdfs:label "is manufacturer of" .
+
+
+###  http://www.example.org/eudamed#isMaterialisedIn
+:isMaterialisedIn rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Risk ;
+                  rdfs:range :Incident ;
+                  rdfs:comment "Inverse of involvesRisk. Relates a risk to the incidents in which it materialised." ;
+                  rdfs:label "is materialised in" .
 
 
 ###  http://www.example.org/eudamed#isReportedFor
@@ -85,6 +136,14 @@ xsd:date rdf:type rdfs:Datatype .
                rdfs:label "is reported for" .
 
 
+###  http://www.example.org/eudamed#isRiskOf
+:isRiskOf rdf:type owl:ObjectProperty ;
+          rdfs:domain :Risk ;
+          rdfs:range :MedicalDevice ;
+          rdfs:comment "Inverse of hasIdentifiedRisk. Relates a risk to the device types it is associated with." ;
+          rdfs:label "is risk of" .
+
+
 ###  http://www.example.org/eudamed#isSubclassifiedUnder
 :isSubclassifiedUnder rdf:type owl:ObjectProperty ,
                                owl:TransitiveProperty ;
@@ -92,6 +151,15 @@ xsd:date rdf:type rdfs:Datatype .
                       rdfs:range :RegulatoryClass ;
                       rdfs:comment "Transitive property relating a risk class to a higher risk class in the regulatory hierarchy." ;
                       rdfs:label "is subclassified under" .
+
+
+###  http://www.example.org/eudamed#isTriggeredBy
+:isTriggeredBy rdf:type owl:ObjectProperty ;
+               owl:inverseOf :triggersCorrectiveAction ;
+               rdfs:domain :CorrectiveAction ;
+               rdfs:range :Incident ;
+               rdfs:comment "Inverse of triggersCorrectiveAction. Relates an FSCA to the incident that prompted it." ;
+               rdfs:label "is triggered by" .
 
 
 ###  http://www.example.org/eudamed#triggersCorrectiveAction
@@ -330,6 +398,14 @@ xsd:date rdf:type rdfs:Datatype .
             rdfs:label "is reusable" .
 
 
+###  http://www.example.org/eudamed#isUnderMonitoring
+:isUnderMonitoring rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :MedicalDevice ;
+                   rdfs:range xsd:boolean ;
+                   rdfs:comment "Indicates that a medical device is currently subject to active post-market surveillance due to an open FSCA. Inferred by SWRL Rule 2." ;
+                   rdfs:label "is under monitoring" .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -352,7 +428,8 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://www.example.org/eudamed#ClassA
 :ClassA rdf:type owl:Class ;
         rdfs:subClassOf :IVDRClass ;
-        rdfs:comment "Lowest IVDR risk class. Low individual and public health risk." ;
+        rdfs:comment "Lowest IVDR risk class." ,
+                     "Lowest IVDR risk class. Low individual and public health risk." ;
         rdfs:label "IVDR Class A" .
 
 
@@ -380,7 +457,8 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://www.example.org/eudamed#ClassI
 :ClassI rdf:type owl:Class ;
         rdfs:subClassOf :MDRClass ;
-        rdfs:comment "Lowest MDR risk class. Devices pose minimal risk to patients and users." ;
+        rdfs:comment "Lowest MDR risk class." ,
+                     "Lowest MDR risk class. Devices pose minimal risk to patients and users." ;
         rdfs:label "Class I" .
 
 
@@ -401,7 +479,8 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://www.example.org/eudamed#ClassIIb
 :ClassIIb rdf:type owl:Class ;
           rdfs:subClassOf :MDRClass ;
-          rdfs:comment "Medium-high MDR risk class. Devices with higher potential hazard to patients." ;
+          rdfs:comment "Medium-high MDR risk class." ,
+                       "Medium-high MDR risk class. Devices with higher potential hazard to patients." ;
           rdfs:label "Class IIb" .
 
 
@@ -415,6 +494,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://www.example.org/eudamed#IVDRClass
 :IVDRClass rdf:type owl:Class ;
            rdfs:subClassOf :RegulatoryClass ;
+           owl:disjointWith :MDRClass ;
            rdfs:comment "Risk classification under the In Vitro Diagnostic Regulation (EU 2017/746). Includes Class A, B, C, and D." ;
            rdfs:label "IVDR Risk Class" .
 
@@ -517,6 +597,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://www.example.org/eudamed#NonSeriousIncident
 :NonSeriousIncident rdf:type owl:Class ;
                     rdfs:subClassOf :Incident ;
+                    owl:disjointWith :SeriousIncident ;
                     rdfs:comment "An incident that did not result in serious injury but was reported to the competent authority." ;
                     rdfs:label "Non-Serious Incident" .
 
@@ -788,5 +869,175 @@ xsd:date rdf:type rdfs:Datatype .
          rdfs:comment "Thrombus formation on device surface causing embolic events in implantable active devices." ;
          rdfs:label "Thrombosis - device-related" .
 
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ActiveDevice
+                :ImplantableDevice
+                :InVitroDiagnosticDevice
+                :SingleUseDevice
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ClassA
+                :ClassB
+                :ClassC
+                :ClassD
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ClassI
+                :ClassIII
+                :ClassIIa
+                :ClassIIb
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :InSituCorrection
+                :Recall
+                :SafetyAlert
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :InfectionRisk
+                :InjuryRisk
+                :MalfunctionRisk
+              )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+:d rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:i rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:fsca rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:r rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Classificació de risc augmentat" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :MedicalDevice ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :d
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :isImplantable ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :isActive ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasRiskClass ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :ClassIII_instance
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Monitoratge actiu" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Incident ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :i
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :triggersCorrectiveAction ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :i ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :fsca
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasFscaStatus ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :fsca ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> "Open"
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :isReportedFor ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :i ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasRegulatoryFramework ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "UnderMonitoring"
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Inferència d'incident seriós" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Risk ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :r
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasSeverity ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :r ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "Critical"
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :involvesRisk ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :i ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :r
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :SeriousIncident ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :i
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
 
 ###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

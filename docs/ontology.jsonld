@@ -9,6 +9,32 @@
     "@id" : "http://www.example.org/eudamed#isReportedFor"
   } ]
 }, {
+  "@id" : "_:genid14",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://www.example.org/eudamed#ClassI"
+    }, {
+      "@id" : "http://www.example.org/eudamed#ClassIII"
+    }, {
+      "@id" : "http://www.example.org/eudamed#ClassIIa"
+    }, {
+      "@id" : "http://www.example.org/eudamed#ClassIIb"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid19",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://www.example.org/eudamed#InSituCorrection"
+    }, {
+      "@id" : "http://www.example.org/eudamed#Recall"
+    }, {
+      "@id" : "http://www.example.org/eudamed#SafetyAlert"
+    } ]
+  } ]
+}, {
   "@id" : "_:genid2",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#cardinality" : [ {
@@ -17,6 +43,58 @@
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "http://www.example.org/eudamed#isManufacturedBy"
+  } ]
+}, {
+  "@id" : "_:genid23",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://www.example.org/eudamed#InfectionRisk"
+    }, {
+      "@id" : "http://www.example.org/eudamed#InjuryRisk"
+    }, {
+      "@id" : "http://www.example.org/eudamed#MalfunctionRisk"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid27",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#Imp" ],
+  "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "@value" : "true"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : ""
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Classificació de risc augmentat"
+  } ],
+  "http://www.w3.org/2003/11/swrl#body" : [ {
+    "@list" : [ {
+      "@id" : "_:genid33"
+    }, {
+      "@id" : "_:genid31"
+    }, {
+      "@id" : "_:genid29"
+    } ]
+  } ],
+  "http://www.w3.org/2003/11/swrl#head" : [ {
+    "@list" : [ {
+      "@id" : "_:genid35"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid29",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "http://www.example.org/eudamed#d"
+  } ],
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "@value" : "true"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.example.org/eudamed#isActive"
   } ]
 }, {
   "@id" : "_:genid3",
@@ -29,6 +107,223 @@
     "@id" : "http://www.example.org/eudamed#hasUdiDi"
   } ]
 }, {
+  "@id" : "_:genid31",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "http://www.example.org/eudamed#d"
+  } ],
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "@value" : "true"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.example.org/eudamed#isImplantable"
+  } ]
+}, {
+  "@id" : "_:genid33",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#ClassAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "http://www.example.org/eudamed#d"
+  } ],
+  "http://www.w3.org/2003/11/swrl#classPredicate" : [ {
+    "@id" : "http://www.example.org/eudamed#MedicalDevice"
+  } ]
+}, {
+  "@id" : "_:genid35",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "http://www.example.org/eudamed#d"
+  } ],
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@id" : "http://www.example.org/eudamed#ClassIII_instance"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.example.org/eudamed#hasRiskClass"
+  } ]
+}, {
+  "@id" : "_:genid36",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#Imp" ],
+  "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "@value" : "true"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : ""
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Monitoratge actiu"
+  } ],
+  "http://www.w3.org/2003/11/swrl#body" : [ {
+    "@list" : [ {
+      "@id" : "_:genid44"
+    }, {
+      "@id" : "_:genid42"
+    }, {
+      "@id" : "_:genid40"
+    }, {
+      "@id" : "_:genid38"
+    } ]
+  } ],
+  "http://www.w3.org/2003/11/swrl#head" : [ {
+    "@list" : [ {
+      "@id" : "_:genid46"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid38",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "http://www.example.org/eudamed#i"
+  } ],
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@id" : "http://www.example.org/eudamed#d"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.example.org/eudamed#isReportedFor"
+  } ]
+}, {
+  "@id" : "_:genid4",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://www.example.org/eudamed#ActiveDevice"
+    }, {
+      "@id" : "http://www.example.org/eudamed#ImplantableDevice"
+    }, {
+      "@id" : "http://www.example.org/eudamed#InVitroDiagnosticDevice"
+    }, {
+      "@id" : "http://www.example.org/eudamed#SingleUseDevice"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid40",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "http://www.example.org/eudamed#fsca"
+  } ],
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@value" : "Open"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.example.org/eudamed#hasFscaStatus"
+  } ]
+}, {
+  "@id" : "_:genid42",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "http://www.example.org/eudamed#i"
+  } ],
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@id" : "http://www.example.org/eudamed#fsca"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.example.org/eudamed#triggersCorrectiveAction"
+  } ]
+}, {
+  "@id" : "_:genid44",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#ClassAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "http://www.example.org/eudamed#i"
+  } ],
+  "http://www.w3.org/2003/11/swrl#classPredicate" : [ {
+    "@id" : "http://www.example.org/eudamed#Incident"
+  } ]
+}, {
+  "@id" : "_:genid46",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "http://www.example.org/eudamed#d"
+  } ],
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@value" : "UnderMonitoring"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.example.org/eudamed#hasRegulatoryFramework"
+  } ]
+}, {
+  "@id" : "_:genid47",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#Imp" ],
+  "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "@value" : "true"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : ""
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Inferència d'incident seriós"
+  } ],
+  "http://www.w3.org/2003/11/swrl#body" : [ {
+    "@list" : [ {
+      "@id" : "_:genid53"
+    }, {
+      "@id" : "_:genid51"
+    }, {
+      "@id" : "_:genid49"
+    } ]
+  } ],
+  "http://www.w3.org/2003/11/swrl#head" : [ {
+    "@list" : [ {
+      "@id" : "_:genid55"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid49",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "http://www.example.org/eudamed#i"
+  } ],
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@id" : "http://www.example.org/eudamed#r"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.example.org/eudamed#involvesRisk"
+  } ]
+}, {
+  "@id" : "_:genid51",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "http://www.example.org/eudamed#r"
+  } ],
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@value" : "Critical"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.example.org/eudamed#hasSeverity"
+  } ]
+}, {
+  "@id" : "_:genid53",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#ClassAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "http://www.example.org/eudamed#r"
+  } ],
+  "http://www.w3.org/2003/11/swrl#classPredicate" : [ {
+    "@id" : "http://www.example.org/eudamed#Risk"
+  } ]
+}, {
+  "@id" : "_:genid55",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#ClassAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "http://www.example.org/eudamed#i"
+  } ],
+  "http://www.w3.org/2003/11/swrl#classPredicate" : [ {
+    "@id" : "http://www.example.org/eudamed#SeriousIncident"
+  } ]
+}, {
+  "@id" : "_:genid9",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://www.example.org/eudamed#ClassA"
+    }, {
+      "@id" : "http://www.example.org/eudamed#ClassB"
+    }, {
+      "@id" : "http://www.example.org/eudamed#ClassC"
+    }, {
+      "@id" : "http://www.example.org/eudamed#ClassD"
+    } ]
+  } ]
+}, {
   "@id" : "http://purl.org/dc/terms/creator",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
@@ -38,7 +333,16 @@
   "@id" : "http://purl.org/dc/terms/description",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
+  "@id" : "http://purl.org/dc/terms/license",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/rights",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
   "@id" : "http://purl.org/dc/terms/title",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://www.example.org/eudamed",
@@ -51,6 +355,12 @@
   } ],
   "http://purl.org/dc/terms/description" : [ {
     "@value" : "An ontology modelling the European catalogue of high-risk medical devices and in-vitro diagnostics under MDR (EU 2017/745) and IVDR (EU 2017/746) regulations."
+  } ],
+  "http://purl.org/dc/terms/license" : [ {
+    "@id" : "https://creativecommons.org/licenses/by/4.0/"
+  } ],
+  "http://purl.org/dc/terms/rights" : [ {
+    "@value" : "This ontology is licensed under CC BY 4.0. You are free to share and adapt it with attribution."
   } ],
   "http://purl.org/dc/terms/title" : [ {
     "@value" : "EUDAMED Medical Devices Ontology"
@@ -88,6 +398,8 @@
   "@id" : "http://www.example.org/eudamed#ClassA",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Lowest IVDR risk class."
+  }, {
     "@value" : "Lowest IVDR risk class. Low individual and public health risk."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
@@ -160,6 +472,8 @@
   "@id" : "http://www.example.org/eudamed#ClassI",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Lowest MDR risk class."
+  }, {
     "@value" : "Lowest MDR risk class. Devices pose minimal risk to patients and users."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
@@ -223,6 +537,8 @@
   "@id" : "http://www.example.org/eudamed#ClassIIb",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Medium-high MDR risk class."
+  }, {
     "@value" : "Medium-high MDR risk class. Devices with higher potential hazard to patients."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
@@ -523,6 +839,9 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.example.org/eudamed#RegulatoryClass"
+  } ],
+  "http://www.w3.org/2002/07/owl#disjointWith" : [ {
+    "@id" : "http://www.example.org/eudamed#MDRClass"
   } ]
 }, {
   "@id" : "http://www.example.org/eudamed#ImplantableActiveDevice",
@@ -817,6 +1136,9 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.example.org/eudamed#Incident"
+  } ],
+  "http://www.w3.org/2002/07/owl#disjointWith" : [ {
+    "@id" : "http://www.example.org/eudamed#SeriousIncident"
   } ]
 }, {
   "@id" : "http://www.example.org/eudamed#RSK-001",
@@ -951,6 +1273,12 @@
     "@id" : "http://www.example.org/eudamed#MedicalDevice"
   } ]
 }, {
+  "@id" : "http://www.example.org/eudamed#d",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#Variable" ]
+}, {
+  "@id" : "http://www.example.org/eudamed#fsca",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#Variable" ]
+}, {
   "@id" : "http://www.example.org/eudamed#hasActionDate",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -964,6 +1292,24 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#date"
+  } ]
+}, {
+  "@id" : "http://www.example.org/eudamed#hasAssociatedIncident",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Inverse of isReportedFor. Relates a device to incidents reported for it."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.example.org/eudamed#MedicalDevice"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "has associated incident"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.example.org/eudamed#Incident"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://www.example.org/eudamed#isReportedFor"
   } ]
 }, {
   "@id" : "http://www.example.org/eudamed#hasAuthorizationNumber",
@@ -1159,6 +1505,9 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.example.org/eudamed#Risk"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://www.example.org/eudamed#isRiskOf"
   } ]
 }, {
   "@id" : "http://www.example.org/eudamed#hasIncidentId",
@@ -1294,6 +1643,24 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.example.org/eudamed#RegulatoryClass"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://www.example.org/eudamed#hasRiskClassifiedDevice"
+  } ]
+}, {
+  "@id" : "http://www.example.org/eudamed#hasRiskClassifiedDevice",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Inverse of hasRiskClass. Relates a regulatory class to the devices assigned to it."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.example.org/eudamed#RegulatoryClass"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "has risk-classified device"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.example.org/eudamed#MedicalDevice"
   } ]
 }, {
   "@id" : "http://www.example.org/eudamed#hasRiskId",
@@ -1341,6 +1708,9 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
+  "@id" : "http://www.example.org/eudamed#i",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#Variable" ]
+}, {
   "@id" : "http://www.example.org/eudamed#involvesRisk",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -1354,6 +1724,9 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.example.org/eudamed#Risk"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://www.example.org/eudamed#isMaterialisedIn"
   } ]
 }, {
   "@id" : "http://www.example.org/eudamed#isActive",
@@ -1414,6 +1787,39 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.example.org/eudamed#Manufacturer"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://www.example.org/eudamed#isManufacturerOf"
+  } ]
+}, {
+  "@id" : "http://www.example.org/eudamed#isManufacturerOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Inverse of isManufacturedBy. Relates a manufacturer to the devices it produces."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.example.org/eudamed#Manufacturer"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "is manufacturer of"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.example.org/eudamed#MedicalDevice"
+  } ]
+}, {
+  "@id" : "http://www.example.org/eudamed#isMaterialisedIn",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Inverse of involvesRisk. Relates a risk to the incidents in which it materialised."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.example.org/eudamed#Risk"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "is materialised in"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.example.org/eudamed#Incident"
   } ]
 }, {
   "@id" : "http://www.example.org/eudamed#isReportedFor",
@@ -1446,6 +1852,21 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#boolean"
   } ]
 }, {
+  "@id" : "http://www.example.org/eudamed#isRiskOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Inverse of hasIdentifiedRisk. Relates a risk to the device types it is associated with."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.example.org/eudamed#Risk"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "is risk of"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.example.org/eudamed#MedicalDevice"
+  } ]
+}, {
   "@id" : "http://www.example.org/eudamed#isSubclassifiedUnder",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#TransitiveProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -1460,6 +1881,42 @@
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.example.org/eudamed#RegulatoryClass"
   } ]
+}, {
+  "@id" : "http://www.example.org/eudamed#isTriggeredBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Inverse of triggersCorrectiveAction. Relates an FSCA to the incident that prompted it."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.example.org/eudamed#CorrectiveAction"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "is triggered by"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.example.org/eudamed#Incident"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://www.example.org/eudamed#triggersCorrectiveAction"
+  } ]
+}, {
+  "@id" : "http://www.example.org/eudamed#isUnderMonitoring",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Indicates that a medical device is currently subject to active post-market surveillance due to an open FSCA. Inferred by SWRL Rule 2."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.example.org/eudamed#MedicalDevice"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "is under monitoring"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#boolean"
+  } ]
+}, {
+  "@id" : "http://www.example.org/eudamed#r",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#Variable" ]
 }, {
   "@id" : "http://www.example.org/eudamed#triggersCorrectiveAction",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],

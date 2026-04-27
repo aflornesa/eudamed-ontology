@@ -6,12 +6,17 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:eudamed="http://www.example.org/eudamed#">
     <owl:Ontology rdf:about="http://www.example.org/eudamed">
         <terms:creator>Abel Florensa Palau</terms:creator>
         <terms:date>2026-04-12</terms:date>
         <terms:description>An ontology modelling the European catalogue of high-risk medical devices and in-vitro diagnostics under MDR (EU 2017/745) and IVDR (EU 2017/746) regulations.</terms:description>
+        <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <terms:rights>This ontology is licensed under CC BY 4.0. You are free to share and adapt it with attribution.</terms:rights>
         <terms:title>EUDAMED Medical Devices Ontology</terms:title>
         <owl:versionInfo>1.0.0</owl:versionInfo>
     </owl:Ontology>
@@ -51,10 +56,31 @@
     
 
 
+    <!-- http://purl.org/dc/terms/license -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/rights -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/rights"/>
+    
+
+
     <!-- http://purl.org/dc/terms/title -->
 
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
     
 
 
@@ -89,10 +115,24 @@
     
 
 
+    <!-- http://www.example.org/eudamed#hasAssociatedIncident -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/eudamed#hasAssociatedIncident">
+        <owl:inverseOf rdf:resource="http://www.example.org/eudamed#isReportedFor"/>
+        <rdfs:domain rdf:resource="http://www.example.org/eudamed#MedicalDevice"/>
+        <rdfs:range rdf:resource="http://www.example.org/eudamed#Incident"/>
+        <rdfs:comment>Inverse of isReportedFor. Relates a device to incidents reported for it.</rdfs:comment>
+        <rdfs:label>has associated incident</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.example.org/eudamed#hasIdentifiedRisk -->
 
 
     <owl:ObjectProperty rdf:about="http://www.example.org/eudamed#hasIdentifiedRisk">
+        <owl:inverseOf rdf:resource="http://www.example.org/eudamed#isRiskOf"/>
         <rdfs:domain rdf:resource="http://www.example.org/eudamed#MedicalDevice"/>
         <rdfs:range rdf:resource="http://www.example.org/eudamed#Risk"/>
         <rdfs:comment>Relates a medical device to a risk identified for that device type.</rdfs:comment>
@@ -105,6 +145,7 @@
 
 
     <owl:ObjectProperty rdf:about="http://www.example.org/eudamed#hasRiskClass">
+        <owl:inverseOf rdf:resource="http://www.example.org/eudamed#hasRiskClassifiedDevice"/>
         <rdfs:domain rdf:resource="http://www.example.org/eudamed#MedicalDevice"/>
         <rdfs:range rdf:resource="http://www.example.org/eudamed#RegulatoryClass"/>
         <rdfs:comment>Relates a medical device to its regulatory risk classification.</rdfs:comment>
@@ -113,10 +154,23 @@
     
 
 
+    <!-- http://www.example.org/eudamed#hasRiskClassifiedDevice -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/eudamed#hasRiskClassifiedDevice">
+        <rdfs:domain rdf:resource="http://www.example.org/eudamed#RegulatoryClass"/>
+        <rdfs:range rdf:resource="http://www.example.org/eudamed#MedicalDevice"/>
+        <rdfs:comment>Inverse of hasRiskClass. Relates a regulatory class to the devices assigned to it.</rdfs:comment>
+        <rdfs:label>has risk-classified device</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.example.org/eudamed#involvesRisk -->
 
 
     <owl:ObjectProperty rdf:about="http://www.example.org/eudamed#involvesRisk">
+        <owl:inverseOf rdf:resource="http://www.example.org/eudamed#isMaterialisedIn"/>
         <rdfs:domain rdf:resource="http://www.example.org/eudamed#Incident"/>
         <rdfs:range rdf:resource="http://www.example.org/eudamed#Risk"/>
         <rdfs:comment>Relates an incident to the risk that materialised.</rdfs:comment>
@@ -129,10 +183,35 @@
 
 
     <owl:ObjectProperty rdf:about="http://www.example.org/eudamed#isManufacturedBy">
+        <owl:inverseOf rdf:resource="http://www.example.org/eudamed#isManufacturerOf"/>
         <rdfs:domain rdf:resource="http://www.example.org/eudamed#MedicalDevice"/>
         <rdfs:range rdf:resource="http://www.example.org/eudamed#Manufacturer"/>
         <rdfs:comment>Relates a medical device to its manufacturer.</rdfs:comment>
         <rdfs:label>is manufactured by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/eudamed#isManufacturerOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/eudamed#isManufacturerOf">
+        <rdfs:domain rdf:resource="http://www.example.org/eudamed#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.example.org/eudamed#MedicalDevice"/>
+        <rdfs:comment>Inverse of isManufacturedBy. Relates a manufacturer to the devices it produces.</rdfs:comment>
+        <rdfs:label>is manufacturer of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/eudamed#isMaterialisedIn -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/eudamed#isMaterialisedIn">
+        <rdfs:domain rdf:resource="http://www.example.org/eudamed#Risk"/>
+        <rdfs:range rdf:resource="http://www.example.org/eudamed#Incident"/>
+        <rdfs:comment>Inverse of involvesRisk. Relates a risk to the incidents in which it materialised.</rdfs:comment>
+        <rdfs:label>is materialised in</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -149,6 +228,18 @@
     
 
 
+    <!-- http://www.example.org/eudamed#isRiskOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/eudamed#isRiskOf">
+        <rdfs:domain rdf:resource="http://www.example.org/eudamed#Risk"/>
+        <rdfs:range rdf:resource="http://www.example.org/eudamed#MedicalDevice"/>
+        <rdfs:comment>Inverse of hasIdentifiedRisk. Relates a risk to the device types it is associated with.</rdfs:comment>
+        <rdfs:label>is risk of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.example.org/eudamed#isSubclassifiedUnder -->
 
 
@@ -158,6 +249,19 @@
         <rdfs:range rdf:resource="http://www.example.org/eudamed#RegulatoryClass"/>
         <rdfs:comment>Transitive property relating a risk class to a higher risk class in the regulatory hierarchy.</rdfs:comment>
         <rdfs:label>is subclassified under</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/eudamed#isTriggeredBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/eudamed#isTriggeredBy">
+        <owl:inverseOf rdf:resource="http://www.example.org/eudamed#triggersCorrectiveAction"/>
+        <rdfs:domain rdf:resource="http://www.example.org/eudamed#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.example.org/eudamed#Incident"/>
+        <rdfs:comment>Inverse of triggersCorrectiveAction. Relates an FSCA to the incident that prompted it.</rdfs:comment>
+        <rdfs:label>is triggered by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -522,6 +626,18 @@
     
 
 
+    <!-- http://www.example.org/eudamed#isUnderMonitoring -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/eudamed#isUnderMonitoring">
+        <rdfs:domain rdf:resource="http://www.example.org/eudamed#MedicalDevice"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Indicates that a medical device is currently subject to active post-market surveillance due to an open FSCA. Inferred by SWRL Rule 2.</rdfs:comment>
+        <rdfs:label>is under monitoring</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -562,6 +678,7 @@
 
     <owl:Class rdf:about="http://www.example.org/eudamed#ClassA">
         <rdfs:subClassOf rdf:resource="http://www.example.org/eudamed#IVDRClass"/>
+        <rdfs:comment>Lowest IVDR risk class.</rdfs:comment>
         <rdfs:comment>Lowest IVDR risk class. Low individual and public health risk.</rdfs:comment>
         <rdfs:label>IVDR Class A</rdfs:label>
     </owl:Class>
@@ -606,6 +723,7 @@
 
     <owl:Class rdf:about="http://www.example.org/eudamed#ClassI">
         <rdfs:subClassOf rdf:resource="http://www.example.org/eudamed#MDRClass"/>
+        <rdfs:comment>Lowest MDR risk class.</rdfs:comment>
         <rdfs:comment>Lowest MDR risk class. Devices pose minimal risk to patients and users.</rdfs:comment>
         <rdfs:label>Class I</rdfs:label>
     </owl:Class>
@@ -639,6 +757,7 @@
 
     <owl:Class rdf:about="http://www.example.org/eudamed#ClassIIb">
         <rdfs:subClassOf rdf:resource="http://www.example.org/eudamed#MDRClass"/>
+        <rdfs:comment>Medium-high MDR risk class.</rdfs:comment>
         <rdfs:comment>Medium-high MDR risk class. Devices with higher potential hazard to patients.</rdfs:comment>
         <rdfs:label>Class IIb</rdfs:label>
     </owl:Class>
@@ -661,6 +780,7 @@
 
     <owl:Class rdf:about="http://www.example.org/eudamed#IVDRClass">
         <rdfs:subClassOf rdf:resource="http://www.example.org/eudamed#RegulatoryClass"/>
+        <owl:disjointWith rdf:resource="http://www.example.org/eudamed#MDRClass"/>
         <rdfs:comment>Risk classification under the In Vitro Diagnostic Regulation (EU 2017/746). Includes Class A, B, C, and D.</rdfs:comment>
         <rdfs:label>IVDR Risk Class</rdfs:label>
     </owl:Class>
@@ -821,6 +941,7 @@
 
     <owl:Class rdf:about="http://www.example.org/eudamed#NonSeriousIncident">
         <rdfs:subClassOf rdf:resource="http://www.example.org/eudamed#Incident"/>
+        <owl:disjointWith rdf:resource="http://www.example.org/eudamed#SeriousIncident"/>
         <rdfs:comment>An incident that did not result in serious injury but was reported to the competent authority.</rdfs:comment>
         <rdfs:label>Non-Serious Incident</rdfs:label>
     </owl:Class>
@@ -1200,6 +1321,274 @@
         <rdfs:comment>Thrombus formation on device surface causing embolic events in implantable active devices.</rdfs:comment>
         <rdfs:label>Thrombosis - device-related</rdfs:label>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.example.org/eudamed#ActiveDevice"/>
+            <rdf:Description rdf:about="http://www.example.org/eudamed#ImplantableDevice"/>
+            <rdf:Description rdf:about="http://www.example.org/eudamed#InVitroDiagnosticDevice"/>
+            <rdf:Description rdf:about="http://www.example.org/eudamed#SingleUseDevice"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.example.org/eudamed#ClassA"/>
+            <rdf:Description rdf:about="http://www.example.org/eudamed#ClassB"/>
+            <rdf:Description rdf:about="http://www.example.org/eudamed#ClassC"/>
+            <rdf:Description rdf:about="http://www.example.org/eudamed#ClassD"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.example.org/eudamed#ClassI"/>
+            <rdf:Description rdf:about="http://www.example.org/eudamed#ClassIII"/>
+            <rdf:Description rdf:about="http://www.example.org/eudamed#ClassIIa"/>
+            <rdf:Description rdf:about="http://www.example.org/eudamed#ClassIIb"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.example.org/eudamed#InSituCorrection"/>
+            <rdf:Description rdf:about="http://www.example.org/eudamed#Recall"/>
+            <rdf:Description rdf:about="http://www.example.org/eudamed#SafetyAlert"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.example.org/eudamed#InfectionRisk"/>
+            <rdf:Description rdf:about="http://www.example.org/eudamed#InjuryRisk"/>
+            <rdf:Description rdf:about="http://www.example.org/eudamed#MalfunctionRisk"/>
+        </owl:members>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="http://www.example.org/eudamed#d">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.example.org/eudamed#i">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.example.org/eudamed#fsca">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.example.org/eudamed#r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>Classificació de risc augmentat</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.example.org/eudamed#MedicalDevice"/>
+                        <swrl:argument1 rdf:resource="http://www.example.org/eudamed#d"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.example.org/eudamed#isImplantable"/>
+                                <swrl:argument1 rdf:resource="http://www.example.org/eudamed#d"/>
+                                <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrl:argument2>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.example.org/eudamed#isActive"/>
+                                        <swrl:argument1 rdf:resource="http://www.example.org/eudamed#d"/>
+                                        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrl:argument2>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.example.org/eudamed#hasRiskClass"/>
+                        <swrl:argument1 rdf:resource="http://www.example.org/eudamed#d"/>
+                        <swrl:argument2 rdf:resource="http://www.example.org/eudamed#ClassIII_instance"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>Monitoratge actiu</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.example.org/eudamed#Incident"/>
+                        <swrl:argument1 rdf:resource="http://www.example.org/eudamed#i"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.example.org/eudamed#triggersCorrectiveAction"/>
+                                <swrl:argument1 rdf:resource="http://www.example.org/eudamed#i"/>
+                                <swrl:argument2 rdf:resource="http://www.example.org/eudamed#fsca"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.example.org/eudamed#hasFscaStatus"/>
+                                        <swrl:argument1 rdf:resource="http://www.example.org/eudamed#fsca"/>
+                                        <swrl:argument2>Open</swrl:argument2>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.example.org/eudamed#isReportedFor"/>
+                                                <swrl:argument1 rdf:resource="http://www.example.org/eudamed#i"/>
+                                                <swrl:argument2 rdf:resource="http://www.example.org/eudamed#d"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.example.org/eudamed#hasRegulatoryFramework"/>
+                        <swrl:argument1 rdf:resource="http://www.example.org/eudamed#d"/>
+                        <swrl:argument2>UnderMonitoring</swrl:argument2>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>Inferència d&apos;incident seriós</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.example.org/eudamed#Risk"/>
+                        <swrl:argument1 rdf:resource="http://www.example.org/eudamed#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.example.org/eudamed#hasSeverity"/>
+                                <swrl:argument1 rdf:resource="http://www.example.org/eudamed#r"/>
+                                <swrl:argument2>Critical</swrl:argument2>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.example.org/eudamed#involvesRisk"/>
+                                        <swrl:argument1 rdf:resource="http://www.example.org/eudamed#i"/>
+                                        <swrl:argument2 rdf:resource="http://www.example.org/eudamed#r"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.example.org/eudamed#SeriousIncident"/>
+                        <swrl:argument1 rdf:resource="http://www.example.org/eudamed#i"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
 </rdf:RDF>
 
 

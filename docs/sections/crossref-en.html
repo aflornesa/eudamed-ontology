@@ -61,6 +61,12 @@ This section provides details for each class and property defined by EUDAMED Med
    <dd>
     <a href="#DEV-007" title="http://www.example.org/eudamed#DEV-007">ACUSON Sequoia Ultrasound</a> <sup class="type-ni" title="named individual">ni</sup>
    </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ImplantableDevice" title="http://www.example.org/eudamed#ImplantableDevice">Implantable Device</a> <sup class="type-c" title="class">c</sup>, <a href="#InVitroDiagnosticDevice" title="http://www.example.org/eudamed#InVitroDiagnosticDevice">In Vitro Diagnostic Device</a> <sup class="type-c" title="class">c</sup>, <a href="#SingleUseDevice" title="http://www.example.org/eudamed#SingleUseDevice">Single Use Device</a> <sup class="type-c" title="class">c</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="ActiveImplant">
@@ -88,7 +94,7 @@ This section provides details for each class and property defined by EUDAMED Med
   <h3>Class I<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.example.org/eudamed#ClassI</p>
   <div class="comment">
-   <span class="markdown">Lowest MDR risk class. Devices pose minimal risk to patients and users.</span>
+   <span class="markdown">Lowest MDR risk class.</span>
   </div>
   <dl class="description">
    <dt>
@@ -96,6 +102,12 @@ This section provides details for each class and property defined by EUDAMED Med
    </dt>
    <dd>
     <a href="#MDRClass" title="http://www.example.org/eudamed#MDRClass">MDR Risk Class</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ClassIII" title="http://www.example.org/eudamed#ClassIII">Class III</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassIIa" title="http://www.example.org/eudamed#ClassIIa">Class IIa</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassIIb" title="http://www.example.org/eudamed#ClassIIb">Class IIb</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -118,13 +130,19 @@ This section provides details for each class and property defined by EUDAMED Med
    <dd>
     <a href="#ClassIIa_instance" title="http://www.example.org/eudamed#ClassIIa_instance">Class IIa Risk Instance</a> <sup class="type-ni" title="named individual">ni</sup>
    </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ClassI" title="http://www.example.org/eudamed#ClassI">Class I</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassIII" title="http://www.example.org/eudamed#ClassIII">Class III</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassIIb" title="http://www.example.org/eudamed#ClassIIb">Class IIb</a> <sup class="type-c" title="class">c</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="ClassIIb">
   <h3>Class IIb<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.example.org/eudamed#ClassIIb</p>
   <div class="comment">
-   <span class="markdown">Medium-high MDR risk class. Devices with higher potential hazard to patients.</span>
+   <span class="markdown">Medium-high MDR risk class.</span>
   </div>
   <dl class="description">
    <dt>
@@ -138,6 +156,12 @@ This section provides details for each class and property defined by EUDAMED Med
    </dt>
    <dd>
     <a href="#ClassIIb_instance" title="http://www.example.org/eudamed#ClassIIb_instance">Class IIb Risk Instance</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ClassI" title="http://www.example.org/eudamed#ClassI">Class I</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassIII" title="http://www.example.org/eudamed#ClassIII">Class III</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassIIa" title="http://www.example.org/eudamed#ClassIIa">Class IIa</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -159,6 +183,12 @@ This section provides details for each class and property defined by EUDAMED Med
    </dt>
    <dd>
     <a href="#ClassIII_instance" title="http://www.example.org/eudamed#ClassIII_instance">Class III Risk Instance</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ClassI" title="http://www.example.org/eudamed#ClassI">Class I</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassIIa" title="http://www.example.org/eudamed#ClassIIa">Class IIa</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassIIb" title="http://www.example.org/eudamed#ClassIIb">Class IIb</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -185,7 +215,7 @@ This section provides details for each class and property defined by EUDAMED Med
     is in domain of
    </dt>
    <dd>
-    <a href="#hasEudamedFscaRef" title="http://www.example.org/eudamed#hasEudamedFscaRef">has EUDAMED FSCA reference</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasFscaId" title="http://www.example.org/eudamed#hasFscaId">has FSCA ID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasFscaStatus" title="http://www.example.org/eudamed#hasFscaStatus">has FSCA status</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasActionDate" title="http://www.example.org/eudamed#hasActionDate">has action date</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasDevicesAffected" title="http://www.example.org/eudamed#hasDevicesAffected">has devices affected</a> <sup class="type-dp" title="data property">dp</sup>
+    <a href="#hasEudamedFscaRef" title="http://www.example.org/eudamed#hasEudamedFscaRef">has EUDAMED FSCA reference</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasFscaId" title="http://www.example.org/eudamed#hasFscaId">has FSCA ID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasFscaStatus" title="http://www.example.org/eudamed#hasFscaStatus">has FSCA status</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasActionDate" title="http://www.example.org/eudamed#hasActionDate">has action date</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasDevicesAffected" title="http://www.example.org/eudamed#hasDevicesAffected">has devices affected</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isTriggeredBy" title="http://www.example.org/eudamed#isTriggeredBy">is triggered by</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -235,6 +265,12 @@ This section provides details for each class and property defined by EUDAMED Med
    <dd>
     <a href="#ActiveImplant" title="http://www.example.org/eudamed#ActiveImplant">Active Implant</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ActiveDevice" title="http://www.example.org/eudamed#ActiveDevice">Active Device</a> <sup class="type-c" title="class">c</sup>, <a href="#InVitroDiagnosticDevice" title="http://www.example.org/eudamed#InVitroDiagnosticDevice">In Vitro Diagnostic Device</a> <sup class="type-c" title="class">c</sup>, <a href="#SingleUseDevice" title="http://www.example.org/eudamed#SingleUseDevice">Single Use Device</a> <sup class="type-c" title="class">c</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="InSituCorrection">
@@ -249,6 +285,12 @@ This section provides details for each class and property defined by EUDAMED Med
    </dt>
    <dd>
     <a href="#CorrectiveAction" title="http://www.example.org/eudamed#CorrectiveAction">Field Safety Corrective Action</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#Recall" title="http://www.example.org/eudamed#Recall">Recall</a> <sup class="type-c" title="class">c</sup>, <a href="#SafetyAlert" title="http://www.example.org/eudamed#SafetyAlert">Safety Alert</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -277,6 +319,12 @@ This section provides details for each class and property defined by EUDAMED Med
    <dd>
     <a href="#DEV-018" title="http://www.example.org/eudamed#DEV-018">VIDAS HIV DUO Ultra</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#DEV-016" title="http://www.example.org/eudamed#DEV-016">cobas e 801 Immunoassay Analyzer</a> <sup class="type-ni" title="named individual">ni</sup>
    </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ActiveDevice" title="http://www.example.org/eudamed#ActiveDevice">Active Device</a> <sup class="type-c" title="class">c</sup>, <a href="#ImplantableDevice" title="http://www.example.org/eudamed#ImplantableDevice">Implantable Device</a> <sup class="type-c" title="class">c</sup>, <a href="#SingleUseDevice" title="http://www.example.org/eudamed#SingleUseDevice">Single Use Device</a> <sup class="type-c" title="class">c</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="Incident">
@@ -304,6 +352,12 @@ This section provides details for each class and property defined by EUDAMED Med
    <dd>
     <a href="#hasEudamedIncidentRef" title="http://www.example.org/eudamed#hasEudamedIncidentRef">has EUDAMED incident reference</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasCountryReported" title="http://www.example.org/eudamed#hasCountryReported">has country reported</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasIncidentId" title="http://www.example.org/eudamed#hasIncidentId">has incident ID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasOutcome" title="http://www.example.org/eudamed#hasOutcome">has outcome</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPatientAge" title="http://www.example.org/eudamed#hasPatientAge">has patient age</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasReportDate" title="http://www.example.org/eudamed#hasReportDate">has report date</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#involvesRisk" title="http://www.example.org/eudamed#involvesRisk">involves risk</a> <sup class="type-op" title="object property">op</sup>, <a href="#isReportedFor" title="http://www.example.org/eudamed#isReportedFor">is reported for</a> <sup class="type-op" title="object property">op</sup>, <a href="#triggersCorrectiveAction" title="http://www.example.org/eudamed#triggersCorrectiveAction">triggers corrective action</a> <sup class="type-op" title="object property">op</sup>
    </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasAssociatedIncident" title="http://www.example.org/eudamed#hasAssociatedIncident">has associated incident</a> <sup class="type-op" title="object property">op</sup>, <a href="#isMaterialisedIn" title="http://www.example.org/eudamed#isMaterialisedIn">is materialised in</a> <sup class="type-op" title="object property">op</sup>, <a href="#isTriggeredBy" title="http://www.example.org/eudamed#isTriggeredBy">is triggered by</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="InfectionRisk">
@@ -318,6 +372,12 @@ This section provides details for each class and property defined by EUDAMED Med
    </dt>
    <dd>
     <a href="#Risk" title="http://www.example.org/eudamed#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#InjuryRisk" title="http://www.example.org/eudamed#InjuryRisk">Injury Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MalfunctionRisk" title="http://www.example.org/eudamed#MalfunctionRisk">Malfunction Risk</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -340,13 +400,19 @@ This section provides details for each class and property defined by EUDAMED Med
    <dd>
     <a href="#RSK-003" title="http://www.example.org/eudamed#RSK-003">Thrombosis - device-related</a> <sup class="type-ni" title="named individual">ni</sup>
    </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#InfectionRisk" title="http://www.example.org/eudamed#InfectionRisk">Infection Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MalfunctionRisk" title="http://www.example.org/eudamed#MalfunctionRisk">Malfunction Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="ClassA">
   <h3>IVDR Class A<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.example.org/eudamed#ClassA</p>
   <div class="comment">
-   <span class="markdown">Lowest IVDR risk class. Low individual and public health risk.</span>
+   <span class="markdown">Lowest IVDR risk class.</span>
   </div>
   <dl class="description">
    <dt>
@@ -354,6 +420,12 @@ This section provides details for each class and property defined by EUDAMED Med
    </dt>
    <dd>
     <a href="#IVDRClass" title="http://www.example.org/eudamed#IVDRClass">IVDR Risk Class</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ClassB" title="http://www.example.org/eudamed#ClassB">IVDR Class B</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassC" title="http://www.example.org/eudamed#ClassC">IVDR Class C</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassD" title="http://www.example.org/eudamed#ClassD">IVDR Class D</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -369,6 +441,12 @@ This section provides details for each class and property defined by EUDAMED Med
    </dt>
    <dd>
     <a href="#IVDRClass" title="http://www.example.org/eudamed#IVDRClass">IVDR Risk Class</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ClassA" title="http://www.example.org/eudamed#ClassA">IVDR Class A</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassC" title="http://www.example.org/eudamed#ClassC">IVDR Class C</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassD" title="http://www.example.org/eudamed#ClassD">IVDR Class D</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -391,6 +469,12 @@ This section provides details for each class and property defined by EUDAMED Med
    <dd>
     <a href="#ClassC_instance" title="http://www.example.org/eudamed#ClassC_instance">IVDR Class C Risk Instance</a> <sup class="type-ni" title="named individual">ni</sup>
    </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ClassA" title="http://www.example.org/eudamed#ClassA">IVDR Class A</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassB" title="http://www.example.org/eudamed#ClassB">IVDR Class B</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassD" title="http://www.example.org/eudamed#ClassD">IVDR Class D</a> <sup class="type-c" title="class">c</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="ClassD">
@@ -411,6 +495,12 @@ This section provides details for each class and property defined by EUDAMED Med
    </dt>
    <dd>
     <a href="#ClassD_instance" title="http://www.example.org/eudamed#ClassD_instance">IVDR Class D Risk Instance</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ClassA" title="http://www.example.org/eudamed#ClassA">IVDR Class A</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassB" title="http://www.example.org/eudamed#ClassB">IVDR Class B</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassC" title="http://www.example.org/eudamed#ClassC">IVDR Class C</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -433,6 +523,12 @@ This section provides details for each class and property defined by EUDAMED Med
    <dd>
     <a href="#ClassA" title="http://www.example.org/eudamed#ClassA">IVDR Class A</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassB" title="http://www.example.org/eudamed#ClassB">IVDR Class B</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassC" title="http://www.example.org/eudamed#ClassC">IVDR Class C</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassD" title="http://www.example.org/eudamed#ClassD">IVDR Class D</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#MDRClass" title="http://www.example.org/eudamed#MDRClass">MDR Risk Class</a> <sup class="type-c" title="class">c</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="MalfunctionRisk">
@@ -454,6 +550,12 @@ This section provides details for each class and property defined by EUDAMED Med
    <dd>
     <a href="#RSK-001" title="http://www.example.org/eudamed#RSK-001">Device failure - electrical</a> <sup class="type-ni" title="named individual">ni</sup>
    </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#InfectionRisk" title="http://www.example.org/eudamed#InfectionRisk">Infection Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InjuryRisk" title="http://www.example.org/eudamed#InjuryRisk">Injury Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="Manufacturer">
@@ -473,7 +575,7 @@ This section provides details for each class and property defined by EUDAMED Med
     is in domain of
    </dt>
    <dd>
-    <a href="#hasEudamedSRN" title="http://www.example.org/eudamed#hasEudamedSRN">has EUDAMED SRN</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasAuthorizationNumber" title="http://www.example.org/eudamed#hasAuthorizationNumber">has authorization number</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasContactEmail" title="http://www.example.org/eudamed#hasContactEmail">has contact email</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasCountry" title="http://www.example.org/eudamed#hasCountry">has country</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasManufacturerId" title="http://www.example.org/eudamed#hasManufacturerId">has manufacturer ID</a> <sup class="type-dp" title="data property">dp</sup>
+    <a href="#hasEudamedSRN" title="http://www.example.org/eudamed#hasEudamedSRN">has EUDAMED SRN</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasAuthorizationNumber" title="http://www.example.org/eudamed#hasAuthorizationNumber">has authorization number</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasContactEmail" title="http://www.example.org/eudamed#hasContactEmail">has contact email</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasCountry" title="http://www.example.org/eudamed#hasCountry">has country</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasManufacturerId" title="http://www.example.org/eudamed#hasManufacturerId">has manufacturer ID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isManufacturerOf" title="http://www.example.org/eudamed#isManufacturerOf">is manufacturer of</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -508,6 +610,12 @@ This section provides details for each class and property defined by EUDAMED Med
    <dd>
     <a href="#ClassI" title="http://www.example.org/eudamed#ClassI">Class I</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassIII" title="http://www.example.org/eudamed#ClassIII">Class III</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassIIa" title="http://www.example.org/eudamed#ClassIIa">Class IIa</a> <sup class="type-c" title="class">c</sup>, <a href="#ClassIIb" title="http://www.example.org/eudamed#ClassIIb">Class IIb</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#IVDRClass" title="http://www.example.org/eudamed#IVDRClass">IVDR Risk Class</a> <sup class="type-c" title="class">c</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="MedicalDevice">
@@ -533,13 +641,13 @@ This section provides details for each class and property defined by EUDAMED Med
     is in domain of
    </dt>
    <dd>
-    <a href="#hasUdiDi" title="http://www.example.org/eudamed#hasUdiDi">has UDI-DI</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasDeviceId" title="http://www.example.org/eudamed#hasDeviceId">has device ID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasIdentifiedRisk" title="http://www.example.org/eudamed#hasIdentifiedRisk">has identified risk</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasIntendedPurpose" title="http://www.example.org/eudamed#hasIntendedPurpose">has intended purpose</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRegulatoryFramework" title="http://www.example.org/eudamed#hasRegulatoryFramework">has regulatory framework</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRiskClass" title="http://www.example.org/eudamed#hasRiskClass">has risk class</a> <sup class="type-op" title="object property">op</sup>, <a href="#isIVD" title="http://www.example.org/eudamed#isIVD">is IVD</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isActive" title="http://www.example.org/eudamed#isActive">is active</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isImplantable" title="http://www.example.org/eudamed#isImplantable">is implantable</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isManufacturedBy" title="http://www.example.org/eudamed#isManufacturedBy">is manufactured by</a> <sup class="type-op" title="object property">op</sup>, <a href="#isReusable" title="http://www.example.org/eudamed#isReusable">is reusable</a> <sup class="type-dp" title="data property">dp</sup>
+    <a href="#hasUdiDi" title="http://www.example.org/eudamed#hasUdiDi">has UDI-DI</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasAssociatedIncident" title="http://www.example.org/eudamed#hasAssociatedIncident">has associated incident</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasDeviceId" title="http://www.example.org/eudamed#hasDeviceId">has device ID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasIdentifiedRisk" title="http://www.example.org/eudamed#hasIdentifiedRisk">has identified risk</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasIntendedPurpose" title="http://www.example.org/eudamed#hasIntendedPurpose">has intended purpose</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRegulatoryFramework" title="http://www.example.org/eudamed#hasRegulatoryFramework">has regulatory framework</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRiskClass" title="http://www.example.org/eudamed#hasRiskClass">has risk class</a> <sup class="type-op" title="object property">op</sup>, <a href="#isIVD" title="http://www.example.org/eudamed#isIVD">is IVD</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isActive" title="http://www.example.org/eudamed#isActive">is active</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isImplantable" title="http://www.example.org/eudamed#isImplantable">is implantable</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isManufacturedBy" title="http://www.example.org/eudamed#isManufacturedBy">is manufactured by</a> <sup class="type-op" title="object property">op</sup>, <a href="#isReusable" title="http://www.example.org/eudamed#isReusable">is reusable</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isUnderMonitoring" title="http://www.example.org/eudamed#isUnderMonitoring">is under monitoring</a> <sup class="type-dp" title="data property">dp</sup>
    </dd>
    <dt>
     is in range of
    </dt>
    <dd>
-    <a href="#isReportedFor" title="http://www.example.org/eudamed#isReportedFor">is reported for</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#hasRiskClassifiedDevice" title="http://www.example.org/eudamed#hasRiskClassifiedDevice">has risk-classified device</a> <sup class="type-op" title="object property">op</sup>, <a href="#isManufacturerOf" title="http://www.example.org/eudamed#isManufacturerOf">is manufacturer of</a> <sup class="type-op" title="object property">op</sup>, <a href="#isReportedFor" title="http://www.example.org/eudamed#isReportedFor">is reported for</a> <sup class="type-op" title="object property">op</sup>, <a href="#isRiskOf" title="http://www.example.org/eudamed#isRiskOf">is risk of</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -571,6 +679,12 @@ This section provides details for each class and property defined by EUDAMED Med
    <dd>
     <a href="#Incident" title="http://www.example.org/eudamed#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#SeriousIncident" title="http://www.example.org/eudamed#SeriousIncident">Serious Incident</a> <sup class="type-c" title="class">c</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="Recall">
@@ -585,6 +699,12 @@ This section provides details for each class and property defined by EUDAMED Med
    </dt>
    <dd>
     <a href="#CorrectiveAction" title="http://www.example.org/eudamed#CorrectiveAction">Field Safety Corrective Action</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#InSituCorrection" title="http://www.example.org/eudamed#InSituCorrection">In Situ Correction</a> <sup class="type-c" title="class">c</sup>, <a href="#SafetyAlert" title="http://www.example.org/eudamed#SafetyAlert">Safety Alert</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -611,7 +731,7 @@ This section provides details for each class and property defined by EUDAMED Med
     is in domain of
    </dt>
    <dd>
-    <a href="#isSubclassifiedUnder" title="http://www.example.org/eudamed#isSubclassifiedUnder">is subclassified under</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#hasRiskClassifiedDevice" title="http://www.example.org/eudamed#hasRiskClassifiedDevice">has risk-classified device</a> <sup class="type-op" title="object property">op</sup>, <a href="#isSubclassifiedUnder" title="http://www.example.org/eudamed#isSubclassifiedUnder">is subclassified under</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -644,7 +764,7 @@ This section provides details for each class and property defined by EUDAMED Med
     is in domain of
    </dt>
    <dd>
-    <a href="#hasIMDRFCode" title="http://www.example.org/eudamed#hasIMDRFCode">has IMDRF code</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasProbability" title="http://www.example.org/eudamed#hasProbability">has probability</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRiskId" title="http://www.example.org/eudamed#hasRiskId">has risk ID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasSeverity" title="http://www.example.org/eudamed#hasSeverity">has severity</a> <sup class="type-dp" title="data property">dp</sup>
+    <a href="#hasIMDRFCode" title="http://www.example.org/eudamed#hasIMDRFCode">has IMDRF code</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasProbability" title="http://www.example.org/eudamed#hasProbability">has probability</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRiskId" title="http://www.example.org/eudamed#hasRiskId">has risk ID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasSeverity" title="http://www.example.org/eudamed#hasSeverity">has severity</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isMaterialisedIn" title="http://www.example.org/eudamed#isMaterialisedIn">is materialised in</a> <sup class="type-op" title="object property">op</sup>, <a href="#isRiskOf" title="http://www.example.org/eudamed#isRiskOf">is risk of</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -672,6 +792,12 @@ This section provides details for each class and property defined by EUDAMED Med
    </dt>
    <dd>
     <a href="#FSCA-001" title="http://www.example.org/eudamed#FSCA-001">FSCA-001 HeartMate 3 Safety Alert</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#InSituCorrection" title="http://www.example.org/eudamed#InSituCorrection">In Situ Correction</a> <sup class="type-c" title="class">c</sup>, <a href="#Recall" title="http://www.example.org/eudamed#Recall">Recall</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -709,6 +835,12 @@ This section provides details for each class and property defined by EUDAMED Med
    <dd>
     <a href="#INC-001" title="http://www.example.org/eudamed#INC-001">INC-001 HeartMate 3 Thrombosis</a> <sup class="type-ni" title="named individual">ni</sup>
    </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#NonSeriousIncident" title="http://www.example.org/eudamed#NonSeriousIncident">Non-Serious Incident</a> <sup class="type-c" title="class">c</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="SingleUseDevice">
@@ -724,19 +856,60 @@ This section provides details for each class and property defined by EUDAMED Med
    <dd>
     <a href="#MedicalDevice" title="http://www.example.org/eudamed#MedicalDevice">Medical Device</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ActiveDevice" title="http://www.example.org/eudamed#ActiveDevice">Active Device</a> <sup class="type-c" title="class">c</sup>, <a href="#ImplantableDevice" title="http://www.example.org/eudamed#ImplantableDevice">Implantable Device</a> <sup class="type-c" title="class">c</sup>, <a href="#InVitroDiagnosticDevice" title="http://www.example.org/eudamed#InVitroDiagnosticDevice">In Vitro Diagnostic Device</a> <sup class="type-c" title="class">c</sup>
+   </dd>
   </dl>
  </div>
 </div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
  <h3 id="properties" class="list">Object Properties</h3>
  <ul class="hlist">
+  <li><a href="#hasAssociatedIncident" title="http://www.example.org/eudamed#hasAssociatedIncident">has associated incident</a></li>
   <li><a href="#hasIdentifiedRisk" title="http://www.example.org/eudamed#hasIdentifiedRisk">has identified risk</a></li>
   <li><a href="#hasRiskClass" title="http://www.example.org/eudamed#hasRiskClass">has risk class</a></li>
+  <li><a href="#hasRiskClassifiedDevice" title="http://www.example.org/eudamed#hasRiskClassifiedDevice">has risk-classified device</a></li>
   <li><a href="#involvesRisk" title="http://www.example.org/eudamed#involvesRisk">involves risk</a></li>
   <li><a href="#isManufacturedBy" title="http://www.example.org/eudamed#isManufacturedBy">is manufactured by</a></li>
+  <li><a href="#isManufacturerOf" title="http://www.example.org/eudamed#isManufacturerOf">is manufacturer of</a></li>
+  <li><a href="#isMaterialisedIn" title="http://www.example.org/eudamed#isMaterialisedIn">is materialised in</a></li>
   <li><a href="#isReportedFor" title="http://www.example.org/eudamed#isReportedFor">is reported for</a></li>
+  <li><a href="#isRiskOf" title="http://www.example.org/eudamed#isRiskOf">is risk of</a></li>
   <li><a href="#isSubclassifiedUnder" title="http://www.example.org/eudamed#isSubclassifiedUnder">is subclassified under</a></li>
+  <li><a href="#isTriggeredBy" title="http://www.example.org/eudamed#isTriggeredBy">is triggered by</a></li>
   <li><a href="#triggersCorrectiveAction" title="http://www.example.org/eudamed#triggersCorrectiveAction">triggers corrective action</a></li>
  </ul>
+ <div class="entity" id="hasAssociatedIncident">
+  <h3>has associated incident<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.example.org/eudamed#hasAssociatedIncident</p>
+  <div class="comment">
+   <span class="markdown">Inverse of isReportedFor. Relates a device to incidents reported for it.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#MedicalDevice" title="http://www.example.org/eudamed#MedicalDevice">Medical Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.example.org/eudamed#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isReportedFor" title="http://www.example.org/eudamed#isReportedFor">is reported for</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="hasIdentifiedRisk">
   <h3>has identified risk<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.example.org/eudamed#hasIdentifiedRisk</p>
@@ -756,6 +929,12 @@ This section provides details for each class and property defined by EUDAMED Med
     </dt>
     <dd>
      <a href="#Risk" title="http://www.example.org/eudamed#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isRiskOf" title="http://www.example.org/eudamed#isRiskOf">is risk of</a> <sup class="type-op" title="object property">op</sup>
     </dd>
    </dl>
   </div>
@@ -780,6 +959,41 @@ This section provides details for each class and property defined by EUDAMED Med
     <dd>
      <a href="#RegulatoryClass" title="http://www.example.org/eudamed#RegulatoryClass">Regulatory Class</a> <sup class="type-c" title="class">c</sup>
     </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasRiskClassifiedDevice" title="http://www.example.org/eudamed#hasRiskClassifiedDevice">has risk-classified device</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasRiskClassifiedDevice">
+  <h3>has risk-classified device<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.example.org/eudamed#hasRiskClassifiedDevice</p>
+  <div class="comment">
+   <span class="markdown">Inverse of hasRiskClass. Relates a regulatory class to the devices assigned to it.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#RegulatoryClass" title="http://www.example.org/eudamed#RegulatoryClass">Regulatory Class</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#MedicalDevice" title="http://www.example.org/eudamed#MedicalDevice">Medical Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasRiskClass" title="http://www.example.org/eudamed#hasRiskClass">has risk class</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
    </dl>
   </div>
  </div>
@@ -802,6 +1016,12 @@ This section provides details for each class and property defined by EUDAMED Med
     </dt>
     <dd>
      <a href="#Risk" title="http://www.example.org/eudamed#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isMaterialisedIn" title="http://www.example.org/eudamed#isMaterialisedIn">is materialised in</a> <sup class="type-op" title="object property">op</sup>
     </dd>
    </dl>
   </div>
@@ -826,6 +1046,70 @@ This section provides details for each class and property defined by EUDAMED Med
     <dd>
      <a href="#Manufacturer" title="http://www.example.org/eudamed#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>
     </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isManufacturerOf" title="http://www.example.org/eudamed#isManufacturerOf">is manufacturer of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isManufacturerOf">
+  <h3>is manufacturer of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.example.org/eudamed#isManufacturerOf</p>
+  <div class="comment">
+   <span class="markdown">Inverse of isManufacturedBy. Relates a manufacturer to the devices it produces.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Manufacturer" title="http://www.example.org/eudamed#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#MedicalDevice" title="http://www.example.org/eudamed#MedicalDevice">Medical Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isManufacturedBy" title="http://www.example.org/eudamed#isManufacturedBy">is manufactured by</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isMaterialisedIn">
+  <h3>is materialised in<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.example.org/eudamed#isMaterialisedIn</p>
+  <div class="comment">
+   <span class="markdown">Inverse of involvesRisk. Relates a risk to the incidents in which it materialised.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Risk" title="http://www.example.org/eudamed#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.example.org/eudamed#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#involvesRisk" title="http://www.example.org/eudamed#involvesRisk">involves risk</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
    </dl>
   </div>
  </div>
@@ -848,6 +1132,41 @@ This section provides details for each class and property defined by EUDAMED Med
     </dt>
     <dd>
      <a href="#MedicalDevice" title="http://www.example.org/eudamed#MedicalDevice">Medical Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasAssociatedIncident" title="http://www.example.org/eudamed#hasAssociatedIncident">has associated incident</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isRiskOf">
+  <h3>is risk of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.example.org/eudamed#isRiskOf</p>
+  <div class="comment">
+   <span class="markdown">Inverse of hasIdentifiedRisk. Relates a risk to the device types it is associated with.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Risk" title="http://www.example.org/eudamed#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#MedicalDevice" title="http://www.example.org/eudamed#MedicalDevice">Medical Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasIdentifiedRisk" title="http://www.example.org/eudamed#hasIdentifiedRisk">has identified risk</a> <sup class="type-op" title="object property">op</sup>
     </dd>
    </dl>
   </div>
@@ -876,6 +1195,35 @@ This section provides details for each class and property defined by EUDAMED Med
    </dl>
   </div>
  </div>
+ <div class="entity" id="isTriggeredBy">
+  <h3>is triggered by<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.example.org/eudamed#isTriggeredBy</p>
+  <div class="comment">
+   <span class="markdown">Inverse of triggersCorrectiveAction. Relates an FSCA to the incident that prompted it.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CorrectiveAction" title="http://www.example.org/eudamed#CorrectiveAction">Field Safety Corrective Action</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.example.org/eudamed#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#triggersCorrectiveAction" title="http://www.example.org/eudamed#triggersCorrectiveAction">triggers corrective action</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="triggersCorrectiveAction">
   <h3>triggers corrective action<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.example.org/eudamed#triggersCorrectiveAction</p>
@@ -895,6 +1243,12 @@ This section provides details for each class and property defined by EUDAMED Med
     </dt>
     <dd>
      <a href="#CorrectiveAction" title="http://www.example.org/eudamed#CorrectiveAction">Field Safety Corrective Action</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isTriggeredBy" title="http://www.example.org/eudamed#isTriggeredBy">is triggered by</a> <sup class="type-op" title="object property">op</sup>
     </dd>
    </dl>
   </div>
@@ -930,6 +1284,7 @@ This section provides details for each class and property defined by EUDAMED Med
   <li><a href="#isImplantable" title="http://www.example.org/eudamed#isImplantable">is implantable</a></li>
   <li><a href="#isIVD" title="http://www.example.org/eudamed#isIVD">is IVD</a></li>
   <li><a href="#isReusable" title="http://www.example.org/eudamed#isReusable">is reusable</a></li>
+  <li><a href="#isUnderMonitoring" title="http://www.example.org/eudamed#isUnderMonitoring">is under monitoring</a></li>
  </ul>
  <div class="entity" id="hasActionDate">
   <h3>has action date<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
@@ -1575,6 +1930,29 @@ This section provides details for each class and property defined by EUDAMED Med
    </dl>
   </div>
  </div>
+ <div class="entity" id="isUnderMonitoring">
+  <h3>is under monitoring<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.example.org/eudamed#isUnderMonitoring</p>
+  <div class="comment">
+   <span class="markdown">Indicates that a medical device is currently subject to active post-market surveillance due to an open FSCA. Inferred by SWRL Rule 2.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#MedicalDevice" title="http://www.example.org/eudamed#MedicalDevice">Medical Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
 </div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="namedindividuals">
  <h3 id="namedindividuals" class="list">Named Individuals</h3>
  <ul class="hlist">
@@ -2178,6 +2556,25 @@ This section provides details for each class and property defined by EUDAMED Med
     <a href="#isReusable" title="http://www.example.org/eudamed#isReusable">is reusable</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"false"^^<a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a> </span>
    </dd>
   </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="swrlrules">
+ <h3 id="swrlrules" class="list">SWRL rules</h3>
+ <ul class="hlist">
+  <li><a href="#d4e1818">Classificació de risc augmentat</a></li>
+  <li><a href="#d4e2053">Inferència d'incident seriós</a></li>
+  <li><a href="#d4e1924">Monitoratge actiu</a></li>
+ </ul>
+ <div class="entity" id="d4e1818">
+  <h3>Classificació de risc augmentat<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p><br><br><a href="#MedicalDevice" title="http://www.example.org/eudamed#MedicalDevice">Medical Device</a> <sup class="type-c" title="class">c</sup>(?d) , <a href="#isImplantable" title="http://www.example.org/eudamed#isImplantable">is implantable</a> <sup class="type-dp" title="data property">dp</sup>(?d,"true"^^<a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>) , <a href="#isActive" title="http://www.example.org/eudamed#isActive">is active</a> <sup class="type-dp" title="data property">dp</sup>(?d,"true"^^<a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>) -&gt; <a href="#hasRiskClass" title="http://www.example.org/eudamed#hasRiskClass">has risk class</a> <sup class="type-op" title="object property">op</sup>(?d,?ClassIII_instance)</p>
+ </div>
+ <div class="entity" id="d4e2053">
+  <h3>Inferència d'incident seriós<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p><br><br><a href="#Risk" title="http://www.example.org/eudamed#Risk">Risk</a> <sup class="type-c" title="class">c</sup>(?r) , <a href="#hasSeverity" title="http://www.example.org/eudamed#hasSeverity">has severity</a> <sup class="type-dp" title="data property">dp</sup>(?r,"Critical") , <a href="#involvesRisk" title="http://www.example.org/eudamed#involvesRisk">involves risk</a> <sup class="type-op" title="object property">op</sup>(?i,?r) -&gt; <a href="#SeriousIncident" title="http://www.example.org/eudamed#SeriousIncident">Serious Incident</a> <sup class="type-c" title="class">c</sup>(?i)</p>
+ </div>
+ <div class="entity" id="d4e1924">
+  <h3>Monitoratge actiu<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p><br><br><a href="#Incident" title="http://www.example.org/eudamed#Incident">Incident</a> <sup class="type-c" title="class">c</sup>(?i) , <a href="#triggersCorrectiveAction" title="http://www.example.org/eudamed#triggersCorrectiveAction">triggers corrective action</a> <sup class="type-op" title="object property">op</sup>(?i,?fsca) , <a href="#hasFscaStatus" title="http://www.example.org/eudamed#hasFscaStatus">has FSCA status</a> <sup class="type-dp" title="data property">dp</sup>(?fsca,"Open") , <a href="#isReportedFor" title="http://www.example.org/eudamed#isReportedFor">is reported for</a> <sup class="type-op" title="object property">op</sup>(?i,?d) -&gt; <a href="#hasRegulatoryFramework" title="http://www.example.org/eudamed#hasRegulatoryFramework">has regulatory framework</a> <sup class="type-dp" title="data property">dp</sup>(?d,"UnderMonitoring")</p>
  </div>
 </div><div id="legend">
 <h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>

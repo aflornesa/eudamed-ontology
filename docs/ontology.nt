@@ -2,6 +2,8 @@
 <http://www.example.org/eudamed> <http://purl.org/dc/terms/creator> "Abel Florensa Palau" .
 <http://www.example.org/eudamed> <http://purl.org/dc/terms/date> "2026-04-12" .
 <http://www.example.org/eudamed> <http://purl.org/dc/terms/description> "An ontology modelling the European catalogue of high-risk medical devices and in-vitro diagnostics under MDR (EU 2017/745) and IVDR (EU 2017/746) regulations." .
+<http://www.example.org/eudamed> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> .
+<http://www.example.org/eudamed> <http://purl.org/dc/terms/rights> "This ontology is licensed under CC BY 4.0. You are free to share and adapt it with attribution." .
 <http://www.example.org/eudamed> <http://purl.org/dc/terms/title> "EUDAMED Medical Devices Ontology" .
 <http://www.example.org/eudamed> <http://www.w3.org/2002/07/owl#versionInfo> "1.0.0" .
 # 
@@ -22,8 +24,17 @@
 # http://purl.org/dc/terms/description
 <http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
+# http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/rights
+<http://purl.org/dc/terms/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
 # http://purl.org/dc/terms/title
 <http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
 # 
 # 
@@ -46,8 +57,17 @@
 # #################################################################
 # 
 # 
+# http://www.example.org/eudamed#hasAssociatedIncident
+<http://www.example.org/eudamed#hasAssociatedIncident> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.example.org/eudamed#hasAssociatedIncident> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.example.org/eudamed#isReportedFor> .
+<http://www.example.org/eudamed#hasAssociatedIncident> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/eudamed#MedicalDevice> .
+<http://www.example.org/eudamed#hasAssociatedIncident> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/eudamed#Incident> .
+<http://www.example.org/eudamed#hasAssociatedIncident> <http://www.w3.org/2000/01/rdf-schema#comment> "Inverse of isReportedFor. Relates a device to incidents reported for it." .
+<http://www.example.org/eudamed#hasAssociatedIncident> <http://www.w3.org/2000/01/rdf-schema#label> "has associated incident" .
+# 
 # http://www.example.org/eudamed#hasIdentifiedRisk
 <http://www.example.org/eudamed#hasIdentifiedRisk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.example.org/eudamed#hasIdentifiedRisk> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.example.org/eudamed#isRiskOf> .
 <http://www.example.org/eudamed#hasIdentifiedRisk> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/eudamed#MedicalDevice> .
 <http://www.example.org/eudamed#hasIdentifiedRisk> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/eudamed#Risk> .
 <http://www.example.org/eudamed#hasIdentifiedRisk> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a medical device to a risk identified for that device type." .
@@ -55,13 +75,22 @@
 # 
 # http://www.example.org/eudamed#hasRiskClass
 <http://www.example.org/eudamed#hasRiskClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.example.org/eudamed#hasRiskClass> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.example.org/eudamed#hasRiskClassifiedDevice> .
 <http://www.example.org/eudamed#hasRiskClass> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/eudamed#MedicalDevice> .
 <http://www.example.org/eudamed#hasRiskClass> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/eudamed#RegulatoryClass> .
 <http://www.example.org/eudamed#hasRiskClass> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a medical device to its regulatory risk classification." .
 <http://www.example.org/eudamed#hasRiskClass> <http://www.w3.org/2000/01/rdf-schema#label> "has risk class" .
 # 
+# http://www.example.org/eudamed#hasRiskClassifiedDevice
+<http://www.example.org/eudamed#hasRiskClassifiedDevice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.example.org/eudamed#hasRiskClassifiedDevice> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/eudamed#RegulatoryClass> .
+<http://www.example.org/eudamed#hasRiskClassifiedDevice> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/eudamed#MedicalDevice> .
+<http://www.example.org/eudamed#hasRiskClassifiedDevice> <http://www.w3.org/2000/01/rdf-schema#comment> "Inverse of hasRiskClass. Relates a regulatory class to the devices assigned to it." .
+<http://www.example.org/eudamed#hasRiskClassifiedDevice> <http://www.w3.org/2000/01/rdf-schema#label> "has risk-classified device" .
+# 
 # http://www.example.org/eudamed#involvesRisk
 <http://www.example.org/eudamed#involvesRisk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.example.org/eudamed#involvesRisk> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.example.org/eudamed#isMaterialisedIn> .
 <http://www.example.org/eudamed#involvesRisk> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/eudamed#Incident> .
 <http://www.example.org/eudamed#involvesRisk> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/eudamed#Risk> .
 <http://www.example.org/eudamed#involvesRisk> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates an incident to the risk that materialised." .
@@ -69,10 +98,25 @@
 # 
 # http://www.example.org/eudamed#isManufacturedBy
 <http://www.example.org/eudamed#isManufacturedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.example.org/eudamed#isManufacturedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.example.org/eudamed#isManufacturerOf> .
 <http://www.example.org/eudamed#isManufacturedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/eudamed#MedicalDevice> .
 <http://www.example.org/eudamed#isManufacturedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/eudamed#Manufacturer> .
 <http://www.example.org/eudamed#isManufacturedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a medical device to its manufacturer." .
 <http://www.example.org/eudamed#isManufacturedBy> <http://www.w3.org/2000/01/rdf-schema#label> "is manufactured by" .
+# 
+# http://www.example.org/eudamed#isManufacturerOf
+<http://www.example.org/eudamed#isManufacturerOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.example.org/eudamed#isManufacturerOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/eudamed#Manufacturer> .
+<http://www.example.org/eudamed#isManufacturerOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/eudamed#MedicalDevice> .
+<http://www.example.org/eudamed#isManufacturerOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Inverse of isManufacturedBy. Relates a manufacturer to the devices it produces." .
+<http://www.example.org/eudamed#isManufacturerOf> <http://www.w3.org/2000/01/rdf-schema#label> "is manufacturer of" .
+# 
+# http://www.example.org/eudamed#isMaterialisedIn
+<http://www.example.org/eudamed#isMaterialisedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.example.org/eudamed#isMaterialisedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/eudamed#Risk> .
+<http://www.example.org/eudamed#isMaterialisedIn> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/eudamed#Incident> .
+<http://www.example.org/eudamed#isMaterialisedIn> <http://www.w3.org/2000/01/rdf-schema#comment> "Inverse of involvesRisk. Relates a risk to the incidents in which it materialised." .
+<http://www.example.org/eudamed#isMaterialisedIn> <http://www.w3.org/2000/01/rdf-schema#label> "is materialised in" .
 # 
 # http://www.example.org/eudamed#isReportedFor
 <http://www.example.org/eudamed#isReportedFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -81,6 +125,13 @@
 <http://www.example.org/eudamed#isReportedFor> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates an incident to the medical device involved in the event." .
 <http://www.example.org/eudamed#isReportedFor> <http://www.w3.org/2000/01/rdf-schema#label> "is reported for" .
 # 
+# http://www.example.org/eudamed#isRiskOf
+<http://www.example.org/eudamed#isRiskOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.example.org/eudamed#isRiskOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/eudamed#Risk> .
+<http://www.example.org/eudamed#isRiskOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/eudamed#MedicalDevice> .
+<http://www.example.org/eudamed#isRiskOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Inverse of hasIdentifiedRisk. Relates a risk to the device types it is associated with." .
+<http://www.example.org/eudamed#isRiskOf> <http://www.w3.org/2000/01/rdf-schema#label> "is risk of" .
+# 
 # http://www.example.org/eudamed#isSubclassifiedUnder
 <http://www.example.org/eudamed#isSubclassifiedUnder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://www.example.org/eudamed#isSubclassifiedUnder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
@@ -88,6 +139,14 @@
 <http://www.example.org/eudamed#isSubclassifiedUnder> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/eudamed#RegulatoryClass> .
 <http://www.example.org/eudamed#isSubclassifiedUnder> <http://www.w3.org/2000/01/rdf-schema#comment> "Transitive property relating a risk class to a higher risk class in the regulatory hierarchy." .
 <http://www.example.org/eudamed#isSubclassifiedUnder> <http://www.w3.org/2000/01/rdf-schema#label> "is subclassified under" .
+# 
+# http://www.example.org/eudamed#isTriggeredBy
+<http://www.example.org/eudamed#isTriggeredBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.example.org/eudamed#isTriggeredBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.example.org/eudamed#triggersCorrectiveAction> .
+<http://www.example.org/eudamed#isTriggeredBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/eudamed#CorrectiveAction> .
+<http://www.example.org/eudamed#isTriggeredBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/eudamed#Incident> .
+<http://www.example.org/eudamed#isTriggeredBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Inverse of triggersCorrectiveAction. Relates an FSCA to the incident that prompted it." .
+<http://www.example.org/eudamed#isTriggeredBy> <http://www.w3.org/2000/01/rdf-schema#label> "is triggered by" .
 # 
 # http://www.example.org/eudamed#triggersCorrectiveAction
 <http://www.example.org/eudamed#triggersCorrectiveAction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -301,6 +360,13 @@
 <http://www.example.org/eudamed#isReusable> <http://www.w3.org/2000/01/rdf-schema#comment> "Boolean flag indicating whether the device is intended for reuse." .
 <http://www.example.org/eudamed#isReusable> <http://www.w3.org/2000/01/rdf-schema#label> "is reusable" .
 # 
+# http://www.example.org/eudamed#isUnderMonitoring
+<http://www.example.org/eudamed#isUnderMonitoring> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.example.org/eudamed#isUnderMonitoring> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/eudamed#MedicalDevice> .
+<http://www.example.org/eudamed#isUnderMonitoring> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://www.example.org/eudamed#isUnderMonitoring> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a medical device is currently subject to active post-market surveillance due to an open FSCA. Inferred by SWRL Rule 2." .
+<http://www.example.org/eudamed#isUnderMonitoring> <http://www.w3.org/2000/01/rdf-schema#label> "is under monitoring" .
+# 
 # 
 # 
 # #################################################################
@@ -326,6 +392,7 @@
 # http://www.example.org/eudamed#ClassA
 <http://www.example.org/eudamed#ClassA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.example.org/eudamed#ClassA> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.example.org/eudamed#IVDRClass> .
+<http://www.example.org/eudamed#ClassA> <http://www.w3.org/2000/01/rdf-schema#comment> "Lowest IVDR risk class." .
 <http://www.example.org/eudamed#ClassA> <http://www.w3.org/2000/01/rdf-schema#comment> "Lowest IVDR risk class. Low individual and public health risk." .
 <http://www.example.org/eudamed#ClassA> <http://www.w3.org/2000/01/rdf-schema#label> "IVDR Class A" .
 # 
@@ -350,6 +417,7 @@
 # http://www.example.org/eudamed#ClassI
 <http://www.example.org/eudamed#ClassI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.example.org/eudamed#ClassI> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.example.org/eudamed#MDRClass> .
+<http://www.example.org/eudamed#ClassI> <http://www.w3.org/2000/01/rdf-schema#comment> "Lowest MDR risk class." .
 <http://www.example.org/eudamed#ClassI> <http://www.w3.org/2000/01/rdf-schema#comment> "Lowest MDR risk class. Devices pose minimal risk to patients and users." .
 <http://www.example.org/eudamed#ClassI> <http://www.w3.org/2000/01/rdf-schema#label> "Class I" .
 # 
@@ -368,6 +436,7 @@
 # http://www.example.org/eudamed#ClassIIb
 <http://www.example.org/eudamed#ClassIIb> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.example.org/eudamed#ClassIIb> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.example.org/eudamed#MDRClass> .
+<http://www.example.org/eudamed#ClassIIb> <http://www.w3.org/2000/01/rdf-schema#comment> "Medium-high MDR risk class." .
 <http://www.example.org/eudamed#ClassIIb> <http://www.w3.org/2000/01/rdf-schema#comment> "Medium-high MDR risk class. Devices with higher potential hazard to patients." .
 <http://www.example.org/eudamed#ClassIIb> <http://www.w3.org/2000/01/rdf-schema#label> "Class IIb" .
 # 
@@ -380,6 +449,7 @@
 # http://www.example.org/eudamed#IVDRClass
 <http://www.example.org/eudamed#IVDRClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.example.org/eudamed#IVDRClass> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.example.org/eudamed#RegulatoryClass> .
+<http://www.example.org/eudamed#IVDRClass> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.example.org/eudamed#MDRClass> .
 <http://www.example.org/eudamed#IVDRClass> <http://www.w3.org/2000/01/rdf-schema#comment> "Risk classification under the In Vitro Diagnostic Regulation (EU 2017/746). Includes Class A, B, C, and D." .
 <http://www.example.org/eudamed#IVDRClass> <http://www.w3.org/2000/01/rdf-schema#label> "IVDR Risk Class" .
 # 
@@ -469,6 +539,7 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 # http://www.example.org/eudamed#NonSeriousIncident
 <http://www.example.org/eudamed#NonSeriousIncident> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.example.org/eudamed#NonSeriousIncident> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.example.org/eudamed#Incident> .
+<http://www.example.org/eudamed#NonSeriousIncident> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.example.org/eudamed#SeriousIncident> .
 <http://www.example.org/eudamed#NonSeriousIncident> <http://www.w3.org/2000/01/rdf-schema#comment> "An incident that did not result in serious injury but was reported to the competent authority." .
 <http://www.example.org/eudamed#NonSeriousIncident> <http://www.w3.org/2000/01/rdf-schema#label> "Non-Serious Incident" .
 # 
@@ -545,11 +616,11 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://www.example.org/eudamed#ClassIIa_instance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://www.example.org/eudamed#ClassIIa_instance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.org/eudamed#ClassIIa> .
 <http://www.example.org/eudamed#ClassIIa_instance> <http://www.example.org/eudamed#isSubclassifiedUnder> <http://www.example.org/eudamed#ClassIIb_instance> .
-<http://www.example.org/eudamed#ClassIIb_instance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://www.example.org/eudamed#ClassIIa_instance> <http://www.w3.org/2000/01/rdf-schema#comment> "Instance representing the MDR Class IIa risk classification." .
 <http://www.example.org/eudamed#ClassIIa_instance> <http://www.w3.org/2000/01/rdf-schema#label> "Class IIa Risk Instance" .
 # 
 # http://www.example.org/eudamed#ClassIIb_instance
+<http://www.example.org/eudamed#ClassIIb_instance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://www.example.org/eudamed#ClassIIb_instance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.org/eudamed#ClassIIb> .
 <http://www.example.org/eudamed#ClassIIb_instance> <http://www.example.org/eudamed#isSubclassifiedUnder> <http://www.example.org/eudamed#ClassIII_instance> .
 <http://www.example.org/eudamed#ClassIIb_instance> <http://www.w3.org/2000/01/rdf-schema#comment> "Instance representing the MDR Class IIb risk classification." .
@@ -560,7 +631,6 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://www.example.org/eudamed#DEV-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.org/eudamed#ImplantableActiveDevice> .
 <http://www.example.org/eudamed#DEV-001> <http://www.example.org/eudamed#hasRiskClass> <http://www.example.org/eudamed#ClassIII_instance> .
 <http://www.example.org/eudamed#DEV-001> <http://www.example.org/eudamed#isManufacturedBy> <http://www.example.org/eudamed#MAN-001> .
-<http://www.example.org/eudamed#MAN-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://www.example.org/eudamed#DEV-001> <http://www.example.org/eudamed#hasDeviceId> "DEV-001" .
 <http://www.example.org/eudamed#DEV-001> <http://www.example.org/eudamed#hasIntendedPurpose> "Ventricular assist device for end-stage heart failure" .
 <http://www.example.org/eudamed#DEV-001> <http://www.example.org/eudamed#hasRegulatoryFramework> "MDR" .
@@ -577,7 +647,6 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://www.example.org/eudamed#DEV-007> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.org/eudamed#ActiveDevice> .
 <http://www.example.org/eudamed#DEV-007> <http://www.example.org/eudamed#hasRiskClass> <http://www.example.org/eudamed#ClassIIa_instance> .
 <http://www.example.org/eudamed#DEV-007> <http://www.example.org/eudamed#isManufacturedBy> <http://www.example.org/eudamed#MAN-003> .
-<http://www.example.org/eudamed#MAN-003> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://www.example.org/eudamed#DEV-007> <http://www.example.org/eudamed#hasDeviceId> "DEV-007" .
 <http://www.example.org/eudamed#DEV-007> <http://www.example.org/eudamed#hasIntendedPurpose> "Diagnostic ultrasound imaging system" .
 <http://www.example.org/eudamed#DEV-007> <http://www.example.org/eudamed#hasRegulatoryFramework> "MDR" .
@@ -594,7 +663,6 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://www.example.org/eudamed#DEV-016> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.org/eudamed#InVitroDiagnosticDevice> .
 <http://www.example.org/eudamed#DEV-016> <http://www.example.org/eudamed#hasRiskClass> <http://www.example.org/eudamed#ClassC_instance> .
 <http://www.example.org/eudamed#DEV-016> <http://www.example.org/eudamed#isManufacturedBy> <http://www.example.org/eudamed#MAN-005> .
-<http://www.example.org/eudamed#MAN-005> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://www.example.org/eudamed#DEV-016> <http://www.example.org/eudamed#hasDeviceId> "DEV-016" .
 <http://www.example.org/eudamed#DEV-016> <http://www.example.org/eudamed#hasIntendedPurpose> "Automated immunoassay analyzer for clinical laboratory" .
 <http://www.example.org/eudamed#DEV-016> <http://www.example.org/eudamed#hasRegulatoryFramework> "IVDR" .
@@ -611,7 +679,6 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://www.example.org/eudamed#DEV-018> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.org/eudamed#InVitroDiagnosticDevice> .
 <http://www.example.org/eudamed#DEV-018> <http://www.example.org/eudamed#hasRiskClass> <http://www.example.org/eudamed#ClassD_instance> .
 <http://www.example.org/eudamed#DEV-018> <http://www.example.org/eudamed#isManufacturedBy> <http://www.example.org/eudamed#MAN-015_bioMerieux> .
-<http://www.example.org/eudamed#MAN-015_bioMerieux> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://www.example.org/eudamed#DEV-018> <http://www.example.org/eudamed#hasDeviceId> "DEV-018" .
 <http://www.example.org/eudamed#DEV-018> <http://www.example.org/eudamed#hasIntendedPurpose> "Combined HIV Ag/Ab detection assay" .
 <http://www.example.org/eudamed#DEV-018> <http://www.example.org/eudamed#hasRegulatoryFramework> "IVDR" .
@@ -638,7 +705,6 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://www.example.org/eudamed#INC-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://www.example.org/eudamed#INC-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.org/eudamed#SeriousIncident> .
 <http://www.example.org/eudamed#INC-001> <http://www.example.org/eudamed#involvesRisk> <http://www.example.org/eudamed#RSK-003> .
-<http://www.example.org/eudamed#RSK-003> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://www.example.org/eudamed#INC-001> <http://www.example.org/eudamed#isReportedFor> <http://www.example.org/eudamed#DEV-001> .
 <http://www.example.org/eudamed#INC-001> <http://www.example.org/eudamed#triggersCorrectiveAction> <http://www.example.org/eudamed#FSCA-001> .
 <http://www.example.org/eudamed#INC-001> <http://www.example.org/eudamed#hasCountryReported> "Germany" .
@@ -651,6 +717,7 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://www.example.org/eudamed#INC-001> <http://www.w3.org/2000/01/rdf-schema#label> "INC-001 HeartMate 3 Thrombosis" .
 # 
 # http://www.example.org/eudamed#MAN-001
+<http://www.example.org/eudamed#MAN-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://www.example.org/eudamed#MAN-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.org/eudamed#Manufacturer> .
 <http://www.example.org/eudamed#MAN-001> <http://www.example.org/eudamed#hasAuthorizationNumber> "IE/2017/001234" .
 <http://www.example.org/eudamed#MAN-001> <http://www.example.org/eudamed#hasContactEmail> "regulatory@medtronic.com" .
@@ -672,6 +739,7 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://www.example.org/eudamed#MAN-002> <http://www.w3.org/2000/01/rdf-schema#label> "Abbott Medical Devices" .
 # 
 # http://www.example.org/eudamed#MAN-003
+<http://www.example.org/eudamed#MAN-003> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://www.example.org/eudamed#MAN-003> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.org/eudamed#Manufacturer> .
 <http://www.example.org/eudamed#MAN-003> <http://www.example.org/eudamed#hasAuthorizationNumber> "DE/2017/009012" .
 <http://www.example.org/eudamed#MAN-003> <http://www.example.org/eudamed#hasContactEmail> "regulatory@siemens-healthineers.com" .
@@ -682,6 +750,7 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://www.example.org/eudamed#MAN-003> <http://www.w3.org/2000/01/rdf-schema#label> "Siemens Healthineers AG" .
 # 
 # http://www.example.org/eudamed#MAN-005
+<http://www.example.org/eudamed#MAN-005> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://www.example.org/eudamed#MAN-005> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.org/eudamed#Manufacturer> .
 <http://www.example.org/eudamed#MAN-005> <http://www.example.org/eudamed#hasAuthorizationNumber> "DE/2017/017890" .
 <http://www.example.org/eudamed#MAN-005> <http://www.example.org/eudamed#hasContactEmail> "regulatory@roche.com" .
@@ -692,6 +761,7 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://www.example.org/eudamed#MAN-005> <http://www.w3.org/2000/01/rdf-schema#label> "Roche Diagnostics GmbH" .
 # 
 # http://www.example.org/eudamed#MAN-015_bioMerieux
+<http://www.example.org/eudamed#MAN-015_bioMerieux> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://www.example.org/eudamed#MAN-015_bioMerieux> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.org/eudamed#Manufacturer> .
 <http://www.example.org/eudamed#MAN-015_bioMerieux> <http://www.example.org/eudamed#hasAuthorizationNumber> "FR/2017/015432" .
 <http://www.example.org/eudamed#MAN-015_bioMerieux> <http://www.example.org/eudamed#hasContactEmail> "regulatory@biomerieux.com" .
@@ -712,6 +782,7 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://www.example.org/eudamed#RSK-001> <http://www.w3.org/2000/01/rdf-schema#label> "Device failure - electrical" .
 # 
 # http://www.example.org/eudamed#RSK-003
+<http://www.example.org/eudamed#RSK-003> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://www.example.org/eudamed#RSK-003> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.org/eudamed#InjuryRisk> .
 <http://www.example.org/eudamed#RSK-003> <http://www.example.org/eudamed#hasIMDRFCode> "A0201" .
 <http://www.example.org/eudamed#RSK-003> <http://www.example.org/eudamed#hasProbability> "Low" .
@@ -720,4 +791,200 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://www.example.org/eudamed#RSK-003> <http://www.w3.org/2000/01/rdf-schema#comment> "Thrombus formation on device surface causing embolic events in implantable active devices." .
 <http://www.example.org/eudamed#RSK-003> <http://www.w3.org/2000/01/rdf-schema#label> "Thrombosis - device-related" .
 # 
+# 
+# 
+# #################################################################
+# #
+# #    General axioms
+# #
+# #################################################################
+# 
+# 
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid4 <http://www.w3.org/2002/07/owl#members> _:genid8 .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid7 .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid6 .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#SingleUseDevice> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#InVitroDiagnosticDevice> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#ImplantableDevice> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#ActiveDevice> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid9 <http://www.w3.org/2002/07/owl#members> _:genid13 .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid12 .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid11 .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid10 .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#ClassD> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#ClassC> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#ClassB> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#ClassA> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid14 <http://www.w3.org/2002/07/owl#members> _:genid18 .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid17 .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid16 .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid15 .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#ClassIIb> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#ClassIIa> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#ClassIII> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#ClassI> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid19 <http://www.w3.org/2002/07/owl#members> _:genid22 .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid21 .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid20 .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#SafetyAlert> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#Recall> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#InSituCorrection> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid23 <http://www.w3.org/2002/07/owl#members> _:genid26 .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid25 .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid24 .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#MalfunctionRisk> .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#InjuryRisk> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/eudamed#InfectionRisk> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Rules
+# #
+# #################################################################
+# 
+# 
+<http://www.example.org/eudamed#d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<http://www.example.org/eudamed#i> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<http://www.example.org/eudamed#fsca> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<http://www.example.org/eudamed#r> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+_:genid27 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:genid27 <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+_:genid27 <http://www.w3.org/2000/01/rdf-schema#label> "Classificació de risc augmentat" .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:genid27 <http://www.w3.org/2003/11/swrl#body> _:genid32 .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid30 .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid28 .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid29 .
+_:genid29 <http://www.w3.org/2003/11/swrl#argument2> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:genid29 <http://www.w3.org/2003/11/swrl#argument1> <http://www.example.org/eudamed#d> .
+_:genid29 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.example.org/eudamed#isActive> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid31 .
+_:genid31 <http://www.w3.org/2003/11/swrl#argument2> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:genid31 <http://www.w3.org/2003/11/swrl#argument1> <http://www.example.org/eudamed#d> .
+_:genid31 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.example.org/eudamed#isImplantable> .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid33 .
+_:genid33 <http://www.w3.org/2003/11/swrl#argument1> <http://www.example.org/eudamed#d> .
+_:genid33 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.example.org/eudamed#MedicalDevice> .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid27 <http://www.w3.org/2003/11/swrl#head> _:genid34 .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid35 .
+_:genid35 <http://www.w3.org/2003/11/swrl#argument2> <http://www.example.org/eudamed#ClassIII_instance> .
+_:genid35 <http://www.w3.org/2003/11/swrl#argument1> <http://www.example.org/eudamed#d> .
+_:genid35 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.example.org/eudamed#hasRiskClass> .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid36 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:genid36 <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+_:genid36 <http://www.w3.org/2000/01/rdf-schema#label> "Monitoratge actiu" .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:genid36 <http://www.w3.org/2003/11/swrl#body> _:genid43 .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid41 .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid39 .
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid37 .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid38 .
+_:genid38 <http://www.w3.org/2003/11/swrl#argument2> <http://www.example.org/eudamed#d> .
+_:genid38 <http://www.w3.org/2003/11/swrl#argument1> <http://www.example.org/eudamed#i> .
+_:genid38 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.example.org/eudamed#isReportedFor> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid40 .
+_:genid40 <http://www.w3.org/2003/11/swrl#argument2> "Open" .
+_:genid40 <http://www.w3.org/2003/11/swrl#argument1> <http://www.example.org/eudamed#fsca> .
+_:genid40 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.example.org/eudamed#hasFscaStatus> .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid42 .
+_:genid42 <http://www.w3.org/2003/11/swrl#argument2> <http://www.example.org/eudamed#fsca> .
+_:genid42 <http://www.w3.org/2003/11/swrl#argument1> <http://www.example.org/eudamed#i> .
+_:genid42 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.example.org/eudamed#triggersCorrectiveAction> .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid44 .
+_:genid44 <http://www.w3.org/2003/11/swrl#argument1> <http://www.example.org/eudamed#i> .
+_:genid44 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.example.org/eudamed#Incident> .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid36 <http://www.w3.org/2003/11/swrl#head> _:genid45 .
+_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid46 .
+_:genid46 <http://www.w3.org/2003/11/swrl#argument2> "UnderMonitoring" .
+_:genid46 <http://www.w3.org/2003/11/swrl#argument1> <http://www.example.org/eudamed#d> .
+_:genid46 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.example.org/eudamed#hasRegulatoryFramework> .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid47 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:genid47 <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+_:genid47 <http://www.w3.org/2000/01/rdf-schema#label> "Inferència d'incident seriós" .
+_:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:genid47 <http://www.w3.org/2003/11/swrl#body> _:genid52 .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid50 .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid48 .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid49 .
+_:genid49 <http://www.w3.org/2003/11/swrl#argument2> <http://www.example.org/eudamed#r> .
+_:genid49 <http://www.w3.org/2003/11/swrl#argument1> <http://www.example.org/eudamed#i> .
+_:genid49 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.example.org/eudamed#involvesRisk> .
+_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid51 .
+_:genid51 <http://www.w3.org/2003/11/swrl#argument2> "Critical" .
+_:genid51 <http://www.w3.org/2003/11/swrl#argument1> <http://www.example.org/eudamed#r> .
+_:genid51 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.example.org/eudamed#hasSeverity> .
+_:genid51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid53 .
+_:genid53 <http://www.w3.org/2003/11/swrl#argument1> <http://www.example.org/eudamed#r> .
+_:genid53 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.example.org/eudamed#Risk> .
+_:genid53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid47 <http://www.w3.org/2003/11/swrl#head> _:genid54 .
+_:genid54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid55 .
+_:genid55 <http://www.w3.org/2003/11/swrl#argument1> <http://www.example.org/eudamed#i> .
+_:genid55 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.example.org/eudamed#SeriousIncident> .
+_:genid55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
 # Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
